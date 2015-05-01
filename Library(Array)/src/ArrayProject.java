@@ -9,19 +9,28 @@ public class ArrayProject {
 		System.out.println("2) Checking or Returning a Movie");
 		System.out.println("3) Buying Music");
 		int choice1 = intInput.nextInt();
-
+		// Books
 		if (choice1 == 1) {
 			System.out
 					.println("How many books are you returning or checking out?");
 			int bookNum = intInput.nextInt();
 			Books books[] = new Books[bookNum];
-			for (int x = 0; x<bookNum; x++){
+			for (int x = 0; x < bookNum; x++) {
 				books[x] = new Books();
 			}
-			System.out
-					.println("Enter the name of the book you are checking out or returning.");
 			Scanner str1 = new Scanner(System.in);
-			String bookName = str1.nextLine();
+			for (int index = 0; index < bookNum; index++) {
+				System.out
+						.println("Enter the name of the book you are checking out or returning.");
+				String bookName = str1.nextLine();
+				books[index].add(bookName);
+			}
+
+			for (int index = 0; index < bookNum; index++) {
+				books[index].showData();
+			}
+
+			// Movies
 
 		} else if (choice1 == 2) {
 			System.out
@@ -32,6 +41,7 @@ public class ArrayProject {
 			Scanner str2 = new Scanner(System.in);
 			String movieName = str2.nextLine();
 
+			// Music
 		} else if (choice1 == 3) {
 			System.out.println("How many songs are you buying?");
 			int musicNum = intInput.nextInt();
@@ -39,6 +49,7 @@ public class ArrayProject {
 			Scanner str3 = new Scanner(System.in);
 			String musicName = str3.nextLine();
 
+			// Other
 		} else {
 			System.out.println("That is not a choice");
 		}
@@ -54,6 +65,16 @@ class Books {
 
 	public Books(String n) {
 		add(n);
+	}
+
+	public void add(String n) {
+		bookName = n;
+	}
+
+	public void showData() {
+		System.out.println("Thank you for checking/returning this book:");
+		System.out.println(bookName);
+		System.out.println();
 	}
 
 }
