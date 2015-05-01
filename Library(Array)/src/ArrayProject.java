@@ -36,9 +36,14 @@ public class ArrayProject {
 			System.out
 					.println("How many movies are you returning or checking out?");
 			int movieNum = intInput.nextInt();
+			Movies movies[] = new Movies[movieNum];
+			for (int x =0; x<movieNum; x++)
+			{
+				movies[x] = new Movies();
+			}
+			Scanner str2 = new Scanner(System.in);
 			System.out
 					.println("Enter the name of the movie you are checking out or returning.");
-			Scanner str2 = new Scanner(System.in);
 			String movieName = str2.nextLine();
 
 			// Music
@@ -81,6 +86,24 @@ class Books {
 
 class Movies {
 	private String movieName;
+
+	public Movies() {
+		movieName = "";
+	}
+
+	public Movies(String n) {
+		add(n);
+	}
+
+	public void add(String n) {
+		movieName = n;
+	}
+
+	public void showData() {
+		System.out.println("Thank you for checking/returning this book:");
+		System.out.println(movieName);
+		System.out.println();
+	}
 }
 
 class Music {
