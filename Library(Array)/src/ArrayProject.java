@@ -23,13 +23,13 @@ public class ArrayProject {
 }
 
 class Books {
-	private String 
+	private String bookName;
 }
 
 class Movies {
-
+	private String movieName;
 }
 
 class Music {
-
+	private String musicName;
 }
