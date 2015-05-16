@@ -1,25 +1,29 @@
 import java.util.Scanner;
 
 public class ArrayProject {
+	static int choice1;
+	static int choice2;
+	static int bookNum;
 
 	public static void main(String[] args) {
+		Books[] books = null;
 		while (true) {
 			Scanner intInput = new Scanner(System.in);
 			System.out.println("What would you like to do?");
 			System.out.println("1) Checking or Returning a Book");
 			System.out.println("2) Checking or Returning a Movie");
-			int choice1 = intInput.nextInt();
+			/* int */choice1 = intInput.nextInt();
 			// Books
 			if (choice1 == 1) {
 				System.out.println("Are you...");
 				System.out.println("1) Returning a book?");
 				System.out.println("2) Checking out a book?");
-				int choice2 = intInput.nextInt();
+				/*int*/ choice2 = intInput.nextInt();
 				// Returning Book
 				if (choice2 == 1) {
 					System.out.println("How many books are you returning?");
-					int bookNum = intInput.nextInt();
-					Books books[] = new Books[bookNum];
+					/* int */bookNum = intInput.nextInt();
+					/*Books[]*/ books = new Books[bookNum];
 					for (int x = 0; x < bookNum; x++) {
 						books[x] = new Books();
 					}
@@ -37,7 +41,8 @@ public class ArrayProject {
 				}
 				// Checking out a Book
 				else if (choice2 == 2) {
-
+					for (int index = 0; index < bookNum; index++) {
+						books[index].showData();}
 				} else {
 					System.out
 							.println("Why choose something that isn't a choice???");
