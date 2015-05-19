@@ -46,7 +46,8 @@ public class ArrayProject {
 		System.out.println("2) No");
 		confirmation = confirm.nextInt();
 		}
-		
+		//Added as test
+		confirmation = 0;
 		
 		while (true) {
 			// Scanner intInput = new Scanner(System.in);
