@@ -21,34 +21,35 @@ public class ArrayProject {
 		Scanner intInput = new Scanner(System.in);
 		Scanner str1 = new Scanner(System.in);
 		Scanner str2 = new Scanner(System.in);
-		
-		//Getting User and Password
-		/*At the moment this is totally pointless as there is no memory but Poore
-		 * wants there to be the possibility for other users so ehhh... Might as
-		 * well make it look kind of good.
+
+		// Getting User and Password
+		/*
+		 * At the moment this is totally pointless as there is no memory but
+		 * Poore wants there to be the possibility for other users so ehhh...
+		 * Might as well make it look kind of good.
 		 */
 		ID libraryUser = new ID();
 		confirmation = 0;
-		while (confirmation != 1){
-		System.out.println("Welcome to the community library!");
-		System.out.println("Remember you must turn in a book");
-		System.out.println("to check one out!");
-		System.out.println();
-		System.out.println("Enter your username and password:");
-		System.out.println("Username:");
-		String person = users.nextLine();
-		System.out.println("Password:");
-		privacyKey = passwords.nextInt();
-		libraryUser.user(person, privacyKey);
-		System.out.println("You are currently logged in as: " + libraryUser.getName());
-		System.out.println("Confirm?");
-		System.out.println("1) Yes");
-		System.out.println("2) No");
-		confirmation = confirm.nextInt();
+		while (confirmation != 1) {
+			System.out.println("Welcome to the community library!");
+			System.out.println("Remember you must turn in a book");
+			System.out.println("to check one out!");
+			System.out.println();
+			System.out.println("Enter your username and password:");
+			System.out.println("Username:");
+			String person = users.nextLine();
+			System.out.println("Password:");
+			privacyKey = passwords.nextInt();
+			libraryUser.user(person, privacyKey);
+			System.out.println("You are currently logged in as: "
+					+ libraryUser.getName());
+			System.out.println("Confirm?");
+			System.out.println("1) Yes");
+			System.out.println("2) No");
+			confirmation = confirm.nextInt();
 		}
-		//Added as test
-		confirmation = 0;
-		
+		// Added as test
+
 		while (true) {
 			// Scanner intInput = new Scanner(System.in);
 			System.out.println("What would you like to do?");
@@ -83,14 +84,26 @@ public class ArrayProject {
 				}
 				// Checking out a Book
 				else if (choice2 == 2) {
-					System.out.println("Here are the book(s) we have.");
-					for (int index = 0; index < bookNum; index++) {
-						System.out.println(index);
-						books[index].showData();
+					confirmation = 0;
+					while (confirmation != 1) {
+						System.out.println("Here are the book(s) we have.");
+						for (int index = 0; index < bookNum; index++) {
+							System.out.println(index);
+							books[index].showData();
+						}
+						System.out
+								.println("Enter the number of the book you wish to check out.");
+						/* int */choice4 = intInput.nextInt();
+						System.out.println("Enter your password");
+						privacyKey = passwords.nextInt();
+						if (privacyKey == libraryUser.getPassword()) {
+							confirmation = 1;
+						} else {
+							System.out.println("Wrong password");
+							confirmation = 0;
+						}
+
 					}
-					System.out
-							.println("Enter the number of the book you wish to check out.");
-					/* int */choice4 = intInput.nextInt();
 					System.out.println("Thanks for checking out this book");
 
 					books[choice4].showData();
@@ -129,26 +142,25 @@ public class ArrayProject {
 					// Checking out a Movie
 				} else if (choice3 == 2) {
 					confirmation = 0;
-					while (confirmation != 1){
-					System.out
-							.println("Here are the movie(s) we have available.");
-					for (int index = 0; index < movieNum; index++) {
-						System.out.println(index);
-						movies[index].showData();
-					}
-					System.out
-							.println("Enter the number of the movie you want to check out.");
-					choice5 = intInput.nextInt();
-					System.out.println("Enter your password");
-					privacyKey = passwords.nextInt();
-					if(privacyKey == libraryUser.getPassword()){
-						confirmation = 1;
-					}
-					else{
-						System.out.println("Wrong password");
-						confirmation = 0;
-					}
-					
+					while (confirmation != 1) {
+						System.out
+								.println("Here are the movie(s) we have available.");
+						for (int index = 0; index < movieNum; index++) {
+							System.out.println(index);
+							movies[index].showData();
+						}
+						System.out
+								.println("Enter the number of the movie you want to check out.");
+						choice5 = intInput.nextInt();
+						System.out.println("Enter your password");
+						privacyKey = passwords.nextInt();
+						if (privacyKey == libraryUser.getPassword()) {
+							confirmation = 1;
+						} else {
+							System.out.println("Wrong password");
+							confirmation = 0;
+						}
+
 					}
 					System.out.println("Thanks for checking out this movie.");
 					movies[choice5].showData();
